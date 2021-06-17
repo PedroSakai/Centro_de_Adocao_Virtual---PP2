@@ -1,0 +1,44 @@
+input[type="text"], input[type="password"] { 
+    display: inline-block;
+    padding: 12px;
+    margin: 8px 0;
+    min-width: 200px;
+    min-height: 8px;
+    max-height: 10px;
+}
+
+.pagina {
+    height: 100vh;
+    background-color: #f9e79b;
+}
+
+.login {
+    background-color: #f9e79b;
+    width: 30%;
+    min-height: 58px;
+    margin: 10px auto 0;
+    text-align: center;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+.formLogin {
+    text-align: right;
+}
+
+#titulo {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.btnLogin {
+    background-color: #decc8d;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5px 5px 5px 30px;
+}
+ 
+label {
+    padding: 10px;
+}
