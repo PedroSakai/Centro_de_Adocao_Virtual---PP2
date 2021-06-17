@@ -8,8 +8,6 @@ namespace Pratica_API.Models
         public string Raca { get; set; }
         public string Descricao { get; set; }
         public string urlFoto { get; set; }
-        public int idDono { get; set; }
-        public int idAdotante { get; set; }
-        //public string Estado { get; set; }
+        public string nomeDono { get; set; }
     }
 }

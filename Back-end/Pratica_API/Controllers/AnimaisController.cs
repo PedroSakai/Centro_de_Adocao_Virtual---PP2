@@ -22,7 +22,7 @@ namespace Pratica_API.Controllers
             // construtor
             _context = context;
         }
-
+        
         [HttpGet]
         public ActionResult<List<Animais>> GetAll() 
         {
@@ -115,8 +115,7 @@ namespace Pratica_API.Controllers
                 result.Raca = dadosAnimaisAlt.Raca;
                 result.Descricao = dadosAnimaisAlt.Descricao;
                 result.urlFoto = dadosAnimaisAlt.urlFoto;
-                result.idDono = dadosAnimaisAlt.idDono;
-                result.idAdotante = dadosAnimaisAlt.idAdotante;
+                result.nomeDono = dadosAnimaisAlt.nomeDono;
  
 
                 await _context.SaveChangesAsync();

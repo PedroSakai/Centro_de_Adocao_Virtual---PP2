@@ -1,3 +1,4 @@
+
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
@@ -29,12 +30,13 @@ namespace Pratica_API.Controllers
             return _context.Usuarios.ToList();
         }
         
-        [HttpGet("{UsuarioId}")]
-        public ActionResult<List<Usuarios>> Get(int UsuarioId)
+
+        [HttpGet("{UsuarioNome}")]
+        public ActionResult<List<Usuarios>> GetNome(string UsuarioNome)
         {
             try
             {
-                var result = _context.Usuarios.Find(UsuarioId);
+                var result = _context.Usuarios.Find(UsuarioNome);
 
                 if (result == null)
                 {
@@ -48,7 +50,7 @@ namespace Pratica_API.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Falha no acesso ao banco de dados.");
             }
         }
-      
+
         [HttpPost]
         public async Task<ActionResult> post(Usuarios model)
         {
@@ -59,7 +61,7 @@ namespace Pratica_API.Controllers
                 if (await _context.SaveChangesAsync() == 1)
                 {
                     //return Ok();
-                    return Created($"/api/usuarios/{model.Id}",model);
+                    return Created($"/api/usuarios/{model.nome}",model);
                 }
             }
             catch
@@ -71,13 +73,13 @@ namespace Pratica_API.Controllers
             return BadRequest();
         }
         
-        [HttpDelete("{UsuarioId}")]
-        public async Task<ActionResult> delete(int UsuarioId)
+        [HttpDelete("{UsuarioNome}")]
+        public async Task<ActionResult> delete(string UsuarioNome)
         {
             try
             {
                 //verifica se existe aluno a ser excluído
-                var usuario = await _context.Usuarios.FindAsync(UsuarioId);
+                var usuario = await _context.Usuarios.FindAsync(UsuarioNome);
 
                 if (usuario == null)
                 {
@@ -99,25 +101,25 @@ namespace Pratica_API.Controllers
             return BadRequest();
         }
     
-        [HttpPut("{UsuarioId}")]
-        public async Task<IActionResult> put(int UsuarioId, Usuarios dadosUsuariosAlt)
+        [HttpPut("{UsuarioNome}")]
+        public async Task<IActionResult> put(string UsuarioNome, Usuarios dadosUsuariosAlt)
         {
             try {
                 //verifica se existe aluno a ser alterado
-                var result = await _context.Usuarios.FindAsync(UsuarioId);
+                var result = await _context.Usuarios.FindAsync(UsuarioNome);
 
-                if (UsuarioId != result.Id)
+                if (UsuarioNome != result.nome)
                 {
                     return BadRequest();
                 }
 
-                result.Nome = dadosUsuariosAlt.Nome;
+                result.nome = dadosUsuariosAlt.nome;
                 result.Email = dadosUsuariosAlt.Email;
                 result.Senha = dadosUsuariosAlt.Senha;
  
 
                 await _context.SaveChangesAsync();
-                return Created($"/api/usuarios/{dadosUsuariosAlt.Id}", dadosUsuariosAlt);
+                return Created($"/api/usuarios/{dadosUsuariosAlt.nome}", dadosUsuariosAlt);
             }
             catch
             {
