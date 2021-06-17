@@ -1,0 +1,3 @@
+O arquivo node-modules mesmo compactado não pode ser upado no git-hub, por isso coloquei ele em um drive:
+
+https://drive.google.com/drive/folders/1dA__AAtjzMywcrAz6PhF9a0z5dV1RiZl?usp=sharing
