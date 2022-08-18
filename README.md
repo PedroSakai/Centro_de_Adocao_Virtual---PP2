@@ -8,4 +8,4 @@ A API foi feita com APS.net Code em C#.
 
 O front-end foi feito em js e ReactJS (com html e css também).
 
-Criado por Pedro Sakai, Julia Lopes e Yara Ribeiro.
+Criado por Pedro Sakai (API e integração front-back), Julia Lopes (HTML e CSS) e Yara Ribeiro (CSS);
